@@ -1,3 +1,6 @@
 #include "File.h"
 
-File::File() {}
+File::File(const QString &str)
+{
+    QFile f(str);
+}
