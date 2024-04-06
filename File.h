@@ -4,11 +4,19 @@
 
 class File
 {
-public:
+private:
     QString url;
     qint64 size;
     bool exist;
+
+public:
     File(const QString &str);
+
+    void update(const qint64 &s, const bool &ex);
+
+    QString getUrl();
+    qint64 getSize();
+    bool getExist();
 };
 
 #endif // FILE_H

@@ -1,6 +1,8 @@
 #include <QCoreApplication>
 #include <QFile>
 #include "FileManager.h"
+#include <chrono>
+#include <thread>
 
 int main(int argc, char *argv[])
 {
@@ -9,5 +11,10 @@ int main(int argc, char *argv[])
     QString str = "D:\\qt\\File_Tracking\\test.txt";
     FileManager FM(&l);
     FM.addFile(str);
+    FM.check();
+    while (true) {
+        std::this_thread::sleep_for( std::chrono::milliseconds(100) );
+        FM.check();
+    };
     return a.exec();
 }

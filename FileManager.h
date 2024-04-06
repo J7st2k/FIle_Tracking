@@ -16,8 +16,13 @@ public:
     FileManager(Ilog* logg);
     void addFile(const QString &str);
     void setLog(Ilog *logg);
-    ~FileManager();
 
+    void check();
+    ~FileManager();
+signals:
+    void upd_signal(File* F);
+public slots:
+    void update(File* F);
 };
 
 #endif // FILEMANAGER_H
