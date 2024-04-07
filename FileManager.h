@@ -4,6 +4,7 @@
 #include "Log.h"
 #include <QVector>
 #include <QObject>
+#include <QRegExp>
 
 class FileManager:public QObject
 {
