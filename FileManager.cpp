@@ -9,9 +9,12 @@ FileManager::FileManager(Ilog *logg)
 
 void FileManager::addFile(const QString &str)
 {
-    File* F = new File(str);
-    x.push_back(F);
-    l->log(QString("File ") + str + QString(" added. Size: ") + QString::number(F->getSize()));
+    QRegExp checkPath(QString("(.*):(\\\\.*)*(\..*)"));
+    if(checkPath.exactMatch(str)) {
+        File* F = new File(str);
+        x.push_back(F);
+        l->log(QString("File ") + str + QString(" added. Size: ") + QString::number(F->getSize()));
+    } else l->log(QString("File path ") + str + QString(" is invalid."));
 }
 
 void FileManager::setLog(Ilog *logg)
