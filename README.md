@@ -53,3 +53,8 @@ https://github.com/J7st2k/FIle_Tracking
 
 Случай 5):
 В консоль выводится оповещение о том, что файл был удалён.
+
+UML Диаграмма:
+
+
+![UML Диаграма](https://github.com/J7st2k/FIle_Tracking/blob/develop/images/UML_FM.jpg)
