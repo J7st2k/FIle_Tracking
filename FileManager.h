@@ -20,9 +20,9 @@ public:
     void check();
     ~FileManager();
 signals:
-    void upd_signal(File* F);
+    void upd_signal(File* F, const bool &ex, const qint64 &s);
 public slots:
-    void update(File* F);
+    void update(File* F, const bool &ex, const qint64 &s);
 };
 
 #endif // FILEMANAGER_H

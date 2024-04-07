@@ -8,8 +8,10 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
     ConsoleLog l;
-    QString str = "D:\\qt\\File_Tracking\\test.txt";
+    QString str = "D:\\qt\\File_Tracking\\test1.txt";
     FileManager FM(&l);
+    FM.addFile(str);
+    str = "D:\\qt\\File_Tracking\\test2.txt";
     FM.addFile(str);
     FM.check();
     while (true) {
