@@ -57,4 +57,4 @@ https://github.com/J7st2k/FIle_Tracking
 UML Диаграмма:
 
 
-![UML Диаграма](https://github.com/J7st2k/FIle_Tracking/blob/develop/images/UML_FM.jpg)
+![UML Диаграма](https://github.com/J7st2k/FIle_Tracking/blob/main/images/UML_FM.jpg)
