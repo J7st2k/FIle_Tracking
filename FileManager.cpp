@@ -13,13 +13,16 @@ void FileManager::addFile(const QString &str)
     if(checkPath.exactMatch(str)) {
         File* F = new File(str);
         x.push_back(F);
-        l->log(QString("File ") + str + QString(" added. Size: ") + QString::number(F->getSize()));
-    } else l->log(QString("File path ") + str + QString(" is invalid."));
+        emit log_signal(QString("File ") + str + QString(" added. Size: ") + QString::number(F->getSize()));
+    } else emit log_signal(QString("File path ") + str + QString(" is invalid."));
 }
 
 void FileManager::setLog(Ilog *logg)
 {
-    if (logg) l = logg;
+    if (logg) {
+        l = logg;
+        connect(this, &FileManager::log_signal, l, &Ilog::log);
+    }
 }
 
 void FileManager::check()
@@ -45,12 +48,12 @@ void FileManager::update(File* F, const bool &ex, const qint64 &s)
 {
     if (!F->getExist()) {
         F->update(s, ex);
-        l->log(QString("File ") + F->getUrl() + QString(" has been created. Current size: ") + QString::number(F->getSize()));
+        emit log_signal(QString("File ") + F->getUrl() + QString(" has been created. Current size: ") + QString::number(F->getSize()));
     } else if (ex) {
         F->update(s, ex);
-        l->log(QString("File ") + F->getUrl() + QString(" has been changed. Current size: ") + QString::number(F->getSize()));
+        emit log_signal(QString("File ") + F->getUrl() + QString(" has been changed. Current size: ") + QString::number(F->getSize()));
     } else {
         F->update(s, ex);
-        l->log(QString("File ") + F->getUrl() + QString(" has been deleted."));
+        emit log_signal(QString("File ") + F->getUrl() + QString(" has been deleted."));
     }
 }
