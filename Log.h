@@ -1,16 +1,17 @@
 #ifndef LOG_H
 #define LOG_H
 #include <QTextStream>
+#include <QObject>
 
-class Ilog
+class Ilog : public QObject
 {
-public:
+public slots:
     virtual void log(const QString &str) const = 0;
 };
 
 class ConsoleLog : public Ilog
 {
-public:
+public slots:
     void log(const QString &str) const override
     {
         QTextStream cout(stdout);
