@@ -7,10 +7,11 @@ File::File(const QString &str):url(str)
     size = q.size();
 }
 
-void File::update(const qint64 &s, const bool &ex)
+void File::update()
 {
-    size = s;
-    exist = ex;
+    QFileInfo q(url);
+    exist = q.exists();
+    size = q.size();
 }
 
 QString File::getUrl()

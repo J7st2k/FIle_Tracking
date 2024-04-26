@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     ConsoleLog l;
     int i;
     QString ss;
-    FileManager FM(&l);
+    FileManager& FM = FileManager::Instance(&l);
 
     l.log("Enter the amount of files to track:");
     cin >> i;
