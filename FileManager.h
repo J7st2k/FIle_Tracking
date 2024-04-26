@@ -10,20 +10,22 @@ class FileManager:public QObject
 {
     Q_OBJECT
 private:
+    FileManager(Ilog* logg);
+    ~FileManager();
+    FileManager(FileManager const&);
+    FileManager& operator= (FileManager const&);
+protected:
     QVector <File*> x;
     Ilog* l;
-
 public:
-    FileManager(Ilog* logg);
+    static FileManager& Instance(Ilog* logg);
     void addFile(const QString &str);
     void setLog(Ilog *logg);
-
     void check();
-    ~FileManager();
 signals:
     void upd_signal(File* F);
     void log_signal(const QString &str);
-public slots:
+private slots:
     void update(File* F);
 };
 

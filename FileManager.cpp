@@ -44,6 +44,12 @@ FileManager::~FileManager()
     }
 }
 
+FileManager &FileManager::Instance(Ilog* logg)
+{
+    static FileManager FM(logg);
+    return FM;
+}
+
 void FileManager::update(File* F)
 {
     QFileInfo q;
