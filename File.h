@@ -12,7 +12,7 @@ private:
 public:
     File(const QString &str);
 
-    void update(const qint64 &s, const bool &ex);
+    void update();
 
     QString getUrl();
     qint64 getSize();

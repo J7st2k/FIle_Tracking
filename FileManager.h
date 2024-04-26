@@ -21,10 +21,10 @@ public:
     void check();
     ~FileManager();
 signals:
-    void upd_signal(File* F, const bool &ex, const qint64 &s);
+    void upd_signal(File* F);
     void log_signal(const QString &str);
 public slots:
-    void update(File* F, const bool &ex, const qint64 &s);
+    void update(File* F);
 };
 
 #endif // FILEMANAGER_H

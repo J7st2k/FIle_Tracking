@@ -31,7 +31,7 @@ void FileManager::check()
     for (int i=0; i < x.length(); i++) {
         q.setFile(x[i]->getUrl());
         if (q.exists() != x[i]->getExist() || q.size() != x[i]->getSize()) {
-            emit upd_signal(x[i], q.exists(), q.size());
+            emit upd_signal(x[i]);
         }
     }
 }
@@ -44,16 +44,18 @@ FileManager::~FileManager()
     }
 }
 
-void FileManager::update(File* F, const bool &ex, const qint64 &s)
+void FileManager::update(File* F)
 {
+    QFileInfo q;
+    q.setFile(F->getUrl());
     if (!F->getExist()) {
-        F->update(s, ex);
+        F->update();
         emit log_signal(QString("File ") + F->getUrl() + QString(" has been created. Current size: ") + QString::number(F->getSize()));
-    } else if (ex) {
-        F->update(s, ex);
+    } else if (q.exists()) {
+        F->update();
         emit log_signal(QString("File ") + F->getUrl() + QString(" has been changed. Current size: ") + QString::number(F->getSize()));
     } else {
-        F->update(s, ex);
+        F->update();
         emit log_signal(QString("File ") + F->getUrl() + QString(" has been deleted."));
     }
 }
