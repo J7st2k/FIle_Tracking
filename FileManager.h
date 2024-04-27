@@ -20,6 +20,7 @@ protected:
 public:
     static FileManager& Instance(Ilog* logg);
     void addFile(const QString &str);
+    void removeFile(const QString &str);
     void setLog(Ilog *logg);
     void check();
 signals:
