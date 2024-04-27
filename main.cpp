@@ -26,6 +26,8 @@ int main(int argc, char *argv[])
         cin >> ss;
         FM.addFile(ss);
     }
+    //FM.removeFile("D:\\\\qt\\\\File_Tracking\\\\test1.txt");
+
 
     // D:\\qt\\File_Tracking\\test1.txt
     while (true) {
